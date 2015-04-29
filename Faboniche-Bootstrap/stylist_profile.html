@@ -1,0 +1,98 @@
+ <!DOCTYPE html>
+ <html>
+   <head>
+   	<title> Profile </title>
+     <!-- Latest compiled and minified CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+      <!-- Optional theme -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+     <link href="css/bootstrap.min.css" rel="stylesheet">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+     <script src="js/bootstrap.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+     <style>
+      #image_display {
+      	background-repeat: no-repeat;
+        background-position: 100%;
+        border-radius: 100%;
+        width: 200px;
+        height: 200px;
+        -webkit-border-radius: 500px;
+        
+      }
+      #appointment_button {
+         border-radius: 25px;
+      }
+      .stylist_navigation{
+		    margin: 20px;
+	    }
+	    button:focus {outline:0;}
+     </style>
+     <script type="text/javascript">
+     $(document).ready(function(){ 
+       $("#stylist_tabs a").click(function(e){
+    	  e.preventDefault();
+    	  $(this).tab('show');
+      });
+     });
+     </script>
+   </head>
+   <body>
+     <header>
+       <div class="row" style="background-color: #FFB6C1; height: 80px">
+       </div>
+     </header>
+     <section>
+     	<div class="container" style="padding-top: 1.5cm">
+     		<div class="row" style="background-color: #F5F5F5">
+     		  <img id="image_display" style="padding-top: 0.2cm" class="col-md-3" src="/Users/twinklesiva05/Desktop/resized.jpg"> </img>
+     		  <div class="col-md-6">
+     		  	  <h1 class="row"> Siva Lalita Vissamsetty </h1>
+     		  	  <p class="row" align="justify"> I have an expertise in providing style advice. Take a look at my reviews and the list of the customers I have served by navigating through the following tabs to understand better about my experience.</p>
+     		  	  <div class="row" style="padding-right:1cm; padding-bottom:1cm">
+     		  	    <button class="col-md-3" id="appointment_button" style="background-color: pink; float:right"> Book an Appointment</button> 
+     		  	  </div>
+     		  </div>
+     		  <div class="col-md-3" style="padding-top:0.5cm;">
+     		  	<strong> Today's Appointments </strong><br>
+              None( 
+              <button type="button" class="btn btn-link">View Calendar</button>) <br>
+     		  	<strong> Contact: </strong><br>
+     		  	 <address> 
+     		  	 Phone: <a href="tel:480-316-9306">480-316-9306</a> <br>
+     		  	 Email: <a href="mailto:lalita.vissamsetty@gmail.com">lalita.vissamsetty@gmail.com</a>
+     		  	</address>
+     		  <div>
+     	  </div>
+     	</div>
+     </section>
+     <section class="container" style="padding-top: 1.5cm">
+      <div class="stylist_navigation">
+        <ul class="nav nav-tabs" id="stylist_tabs">
+         <li class="active"><a style="color:pink" href="#services">Services</a></li>
+         <li><a style="color:pink" href="#gallery">Gallery</a></li>
+         <li><a style="color:pink" href="#reviews">Reviews</a></li>
+         <li><a style="color:pink" href="#customers">Customers</a></li>
+        </ul>
+        <div class="tab-content">
+          <div id="services" class="tab-pane fade in active">
+            <h3>Services</h3>
+          </div>
+          <div id="gallery" class="tab-pane fade">
+            <h3>Gallery</h3>
+          </div>
+          <div id="reviews" class="tab-pane fade">
+            <h3>Reviews</h3>
+          </div>
+          <div id="customers" class="tab-pane fade">
+            <h3>Customers</h3>
+          </div>
+        </div>
+     </section>
+     <footer>
+
+     </footer>
+   </body>
+
+
+ </html>

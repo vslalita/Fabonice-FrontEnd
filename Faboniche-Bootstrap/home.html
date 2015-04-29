@@ -22,31 +22,32 @@
 
         #footer {
          background:#ffffff;
-         width:100%;
+         width:105%;
          height:100px;
          position:absolute;
          opacity:0.4;
          bottom:0;
          left:0;
         }
-
       </style>
    </head>
    <body>
+    <img class="bg" src="http://i.huffpost.com/gen/1633005/images/o-FASHION-MODELS-facebook.jpg"></img>
      <header>
          <div class="bg" class="col-xs-12">
      	     <img class="bg" src="http://i.huffpost.com/gen/1633005/images/o-FASHION-MODELS-facebook.jpg">
              <div class="row" style="top:100px; left:20%; margin:10px">
                <img class="col-md-4 col-xs-4" src="/Users/twinklesiva05/Desktop/image.png"></img>
                <div class="row" style="float:right; padding-right: 1cm;">
-                  <button type="button" class="btn btn-link col-md-4 col-xs-4" style="color:#FFFFFF;">Login</button>
+                  <button type="button" class="btn btn-link col-md-4 col-xs-4" style="color:#FFFFFF;" >Login</button>
                   <button type="button" class="btn btn-link col-md-4 col-xs-4" style="color:#FFFFFF;">Sign up</button>
-                  <button type="button" class="btn btn-danger col-md-4 col-xs-4" style="color:#FFFFFF;">Are you a  <br>Stylist?</button>
+                  <button type="button" class="btn btn-danger col-md-4 col-xs-4" data-html="true" data-container="body" data-toggle="popover" data-placement="bottom" data-content="<h1> hello </h1>" style="color:#FFFFFF;">Are you a  <br>Stylist?</button>
                </div>
              </div>
      	     </img>
          </div>
      </header>
+    
      <div class="row" id="footer">
        <form style="opacity:1; padding-top: 1cm; padding-left: 30%; padding-right:30%; padding-bottom:20%" class="form-inline">
          <div class="form-group">
@@ -59,4 +60,8 @@
        </form>
      </div>
    </body>
+
+   <script type="text/javascript">
+     $("[data-toggle=popover]").popover();
+   </script>
   </html>
