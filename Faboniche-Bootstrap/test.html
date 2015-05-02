@@ -1,0 +1,15 @@
+<html>
+<head>
+<script src="lib/angular/angular.min.js"></script>
+<script src="app/controllers/homecontroller.js"></script>
+</head>
+<div ng-app="home" ng-controller="homecontroller"> 
+
+<ul ng-repeat="x in stylists">
+  <li>
+    {{ x.stylist.firstname + ', ' + x.stylist.firstname }}
+  </li>
+</ul>
+
+</div>
+</html>

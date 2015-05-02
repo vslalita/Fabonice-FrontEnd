@@ -9,6 +9,8 @@
      <link href="css/bootstrap.min.css" rel="stylesheet">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
      <script src="js/bootstrap.min.js"></script>
+     <script src="lib/angular/angular.min.js"></script>
+     <script src="app/controllers/homecontroller.js"></script>
      
      <style type="text/css">
      h1#logo{
@@ -25,7 +27,7 @@
       button:focus {outline:0;}
      </style>
    </head>
-   <body>
+   <body ng-app="home" ng-controller="homecontroller" data-spy="scroll" data-target="#myScrollspy">
      <header class="row">
          <div class="col-xs-12">
              <div class="row" style="top:100px; left:20%; margin:10px">
@@ -77,7 +79,17 @@
      <article class="row">
       <div class="col-md-12 col-xs-12" style=" opacity:0.8; background-size: cover; background-image: url(http://i.huffpost.com/gen/1633005/images/o-FASHION-MODELS-facebook.jpg); height: 380px; width: 100%; position:relative">
          <div class="row">
-           <h1 align="center" class="col-md-5 col-md-offset-4 col-sx-5" style="color:black"> HAVE FUN WHILE YOU SHOP<br><small> <span style="">Sign up and Get Started</span></small></h1>
+           <h1 align="center" class="col-md-5 col-md-offset-4 col-sx-5" style="color:black"> Shopping Made Fun !!<br>
+              <small> 
+                <div id="myScrollspy">
+                 <button class="button" style="background-color:white"><span style="color:black"><a href="#howwework"> Learn More..
+                 </a></span></button>
+               </div>
+              </small><br>
+              <small> 
+                Sign up and get Started
+              </small>
+            </h1>
          <div>
       </div>
 
@@ -91,272 +103,64 @@
        </div> 
        <br>
          <div class="row"> 
-           <div class="col-md-3 col-xs-3"> 
-             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+           <div ng-repeat="stylist in stylists" class="col-md-3 col-xs-3"> 
+             <div id="{{stylist.stylist.firstname}}" class="carousel slide" data-ride="carousel" data-interval="false">
                <ol class="carousel-indicators">
-                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                 <li data-target="#{{stylist.stylist.firstname}}" data-slide-to="0" class="active"></li>
+                 <li data-target="#{{stylist.stylist.firstname}}" data-slide-to="1"></li>
+                 <li data-target="#{{stylist.stylist.firstname}}" data-slide-to="2"></li>
                 </ol>
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                   <div class="item active">
-                   <img class="img-rounded img-responsive" style="width:100%; height:300px" src="images/stylist1.jpg" alt="...">
+                   <img class="img-rounded img-responsive" ng-src="{{stylist.stylist.profileimage}}" style="width:100%; height:300px" alt="...">
                     <div class="carousel-caption">
                     </div>
                  </div>
-                 <div class="item">
-                   <img class="img-rounded" style="width:100%; height:300px" src="http://www.wendyslookbook.com/wp-content/uploads/2011/11/Rose-35-650x433.jpg" alt="...">
-                    <div class="carousel-caption">
-                    </div>
-                 </div>
-                 <div class="item">
-                    <img class="img-rounded" style="width:100%; height:300px" src="http://www.wendyslookbook.com/wp-content/uploads/2011/11/Rose-35-650x433.jpg" alt="...">
+                 <div ng-repeat="lookbook in stylist.stylist.lookbook" class="item">
+                   <img class="img-rounded" ng-src="{{lookbook.image}}" style="width:100%; height:300px" src="http://www.wendyslookbook.com/wp-content/uploads/2011/11/Rose-35-650x433.jpg" alt="...">
                     <div class="carousel-caption">
                     </div>
                  </div>
                  <br>
                    <div class="row container" >
-                     <img class="col-md-3 col-xs-4" id="image_display" src="images/icon.jpg"> </img>
-                     <button class="button btn-link"><strong class="col-md-9 col-xs-8" style="float:left; padding-top:1cm">Lalita Vissamsetty</strong></button>
+                     <img class="col-md-3 col-xs-4 img-circle" id="image_display" src="images/icon.jpg"> </img>
+                     <button class="button btn-link"><strong class="col-md-9 col-xs-8" style="float:left; padding-top:1cm">{{stylist.stylist.firstname}} Vissamsetty</strong></button>
                     </div>
                     <br>
                  </div>
                  <!-- Controls -->
-                 <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                 <a class="left carousel-control" href="#{{stylist.stylist.firstname}}" role="button" data-slide="prev">
                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
                     <span class="sr-only">Previous</span>
                   </a>
-                 <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                 <a class="right carousel-control" href="#{{stylist.stylist.firstname}}" role="button" data-slide="next">
                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                    <span class="sr-only">Next</span>
                  </a>
                </div>
+               <br>
            </div>
-           <div class="col-md-3 col-xs-3"> 
-             <div id="carousel-example-generic-2" class="carousel slide" data-ride="carousel" data-interval="false">
-               <ol class="carousel-indicators">
-                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                  <div class="item active">
-                   <img class="img-rounded img-responsive" style="width:100%; height:300px" src="images/stylist1.jpg" alt="...">
-                    <div class="carousel-caption">
-                    </div>
-                 </div>
-                 <div class="item">
-                   <img class="img-rounded" style="width:100%; height:300px" src="http://www.wendyslookbook.com/wp-content/uploads/2011/11/Rose-35-650x433.jpg" alt="...">
-                    <div class="carousel-caption">
-                    </div>
-                 </div>
-                 <div class="item">
-                    <img class="img-rounded" style="width:100%; height:300px" src="http://www.wendyslookbook.com/wp-content/uploads/2011/11/Rose-35-650x433.jpg" alt="...">
-                    <div class="carousel-caption">
-                    </div>
-                 </div>
-                 <br>
-                   <div class="row container" >
-                     <img class="col-md-3 col-xs-4" id="image_display" src="images/icon.jpg"> </img>
-                     <strong class="col-md-9 col-xs-8" style="float:left; padding-top:1cm">Lalita Vissamsetty</strong>
-                    </div>
-                    <br>
-                 </div>
-                 <!-- Controls -->
-                 <a class="left carousel-control" href="#carousel-example-generic-2" role="button" data-slide="prev">
-                   <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                 <a class="right carousel-control" href="#carousel-example-generic-2" role="button" data-slide="next">
-                   <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                   <span class="sr-only">Next</span>
-                 </a>
-               </div>
-           </div>
-           <div class="col-md-3 col-xs-3"> 
-             <div id="carousel-example-generic-3" class="carousel slide" data-ride="carousel" data-interval="false">
-               <ol class="carousel-indicators">
-                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                  <div class="item active">
-                   <img class="img-rounded img-responsive" style="width:100%; height:300px" src="images/stylist1.jpg" alt="...">
-                    <div class="carousel-caption">
-                    </div>
-                 </div>
-                 <div class="item">
-                   <img class="img-rounded" style="width:100%; height:300px" src="http://www.wendyslookbook.com/wp-content/uploads/2011/11/Rose-35-650x433.jpg" alt="...">
-                    <div class="carousel-caption">
-                    </div>
-                 </div>
-                 <div class="item">
-                    <img class="img-rounded" style="width:100%; height:300px" src="http://www.wendyslookbook.com/wp-content/uploads/2011/11/Rose-35-650x433.jpg" alt="...">
-                    <div class="carousel-caption">
-                    </div>
-                 </div>
-                 <br>
-                   <div class="row container" >
-                     <img class="col-md-3 col-xs-4" id="image_display" src="images/icon.jpg"> </img>
-                     <strong class="col-md-9 col-xs-8" style="float:left; padding-top:1cm">Lalita Vissamsetty</strong>
-                    </div>
-                    <br>
-                 </div>
-                 <!-- Controls -->
-                 <a class="left carousel-control" href="#carousel-example-generic-3" role="button" data-slide="prev">
-                   <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                 <a class="right carousel-control" href="#carousel-example-generic-3" role="button" data-slide="next">
-                   <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                   <span class="sr-only">Next</span>
-                 </a>
-               </div>
-           </div>
-         </div>
-
-         <br>
-
-          <div class="row"> 
-           <div class="col-md-3 col-xs-3"> 
-             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
-               <ol class="carousel-indicators">
-                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                  <div class="item active">
-                   <img class="img-rounded img-responsive" style="width:100%; height:300px" src="images/stylist1.jpg" alt="...">
-                    <div class="carousel-caption">
-                    </div>
-                 </div>
-                 <div class="item">
-                   <img class="img-rounded" style="width:100%; height:300px" src="http://www.wendyslookbook.com/wp-content/uploads/2011/11/Rose-35-650x433.jpg" alt="...">
-                    <div class="carousel-caption">
-                    </div>
-                 </div>
-                 <div class="item">
-                    <img class="img-rounded" style="width:100%; height:300px" src="http://www.wendyslookbook.com/wp-content/uploads/2011/11/Rose-35-650x433.jpg" alt="...">
-                    <div class="carousel-caption">
-                    </div>
-                 </div>
-                 <br>
-                   <div class="row container" >
-                     <img class="col-md-3 col-xs-4" id="image_display" src="images/icon.jpg"> </img>
-                     <strong class="col-md-9 col-xs-8" style="float:left; padding-top:1cm">Lalita Vissamsetty</strong>
-                    </div>
-                    <br>
-                 </div>
-                 <!-- Controls -->
-                 <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-                   <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                 <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-                   <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                   <span class="sr-only">Next</span>
-                 </a>
-               </div>
-           </div>
-           <div class="col-md-3 col-xs-3"> 
-             <div id="carousel-example-generic-2" class="carousel slide" data-ride="carousel" data-interval="false">
-               <ol class="carousel-indicators">
-                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                  <div class="item active">
-                   <img class="img-rounded img-responsive" style="width:100%; height:300px" src="images/stylist1.jpg" alt="...">
-                    <div class="carousel-caption">
-                    </div>
-                 </div>
-                 <div class="item">
-                   <img class="img-rounded" style="width:100%; height:300px" src="http://www.wendyslookbook.com/wp-content/uploads/2011/11/Rose-35-650x433.jpg" alt="...">
-                    <div class="carousel-caption">
-                    </div>
-                 </div>
-                 <div class="item">
-                    <img class="img-rounded" style="width:100%; height:300px" src="http://www.wendyslookbook.com/wp-content/uploads/2011/11/Rose-35-650x433.jpg" alt="...">
-                    <div class="carousel-caption">
-                    </div>
-                 </div>
-                 <br>
-                   <div class="row container" >
-                     <img class="col-md-3 col-xs-4" id="image_display" src="images/icon.jpg"> </img>
-                     <strong class="col-md-9 col-xs-8" style="float:left; padding-top:1cm">Lalita Vissamsetty</strong>
-                    </div>
-                    <br>
-                 </div>
-                 <!-- Controls -->
-                 <a class="left carousel-control" href="#carousel-example-generic-2" role="button" data-slide="prev">
-                   <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                 <a class="right carousel-control" href="#carousel-example-generic-2" role="button" data-slide="next">
-                   <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                   <span class="sr-only">Next</span>
-                 </a>
-               </div>
-           </div>
-           <div class="col-md-3 col-xs-3"> 
-             <div id="carousel-example-generic-3" class="carousel slide" data-ride="carousel" data-interval="false">
-               <ol class="carousel-indicators">
-                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                </ol>
-
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                  <div class="item active">
-                   <img class="img-rounded img-responsive" style="width:100%; height:300px" src="images/stylist1.jpg" alt="...">
-                    <div class="carousel-caption">
-                    </div>
-                 </div>
-                 <div class="item">
-                   <img class="img-rounded" style="width:100%; height:300px" src="http://www.wendyslookbook.com/wp-content/uploads/2011/11/Rose-35-650x433.jpg" alt="...">
-                    <div class="carousel-caption">
-                    </div>
-                 </div>
-                 <div class="item">
-                    <img class="img-rounded" style="width:100%; height:300px" src="http://www.wendyslookbook.com/wp-content/uploads/2011/11/Rose-35-650x433.jpg" alt="...">
-                    <div class="carousel-caption">
-                    </div>
-                 </div>
-                 <br>
-                   <div class="row container" >
-                     <img class="col-md-3 col-xs-4" id="image_display" src="images/icon.jpg"> </img>
-                     <strong class="col-md-9 col-xs-8" style="float:left; padding-top:1cm">Lalita Vissamsetty</strong>
-                    </div>
-                    <br>
-                 </div>
-                 <!-- Controls -->
-                 <a class="left carousel-control" href="#carousel-example-generic-3" role="button" data-slide="prev">
-                   <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                 <a class="right carousel-control" href="#carousel-example-generic-3" role="button" data-slide="next">
-                   <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                   <span class="sr-only">Next</span>
-                 </a>
-             </div>
-            </div>
          </div>
      <article>
+     
      <br>
+
+     <article id="howwework" class="container">
+        <div class="row">
+          <hr class="col-md-3 col-xs-3" size=10 style="color:black"></hr>
+          <h2 class="col-md-4 col-xs-4" align="center"> How we Work??</h2>
+          <hr class="col-md-3 col-xs-3" size=1></hr>
+       </div> <br>
+        <div  style="border: 1px gray" class="row container">
+           1. Select a Stylist. <br>
+           2. Schedule an Appointment.<br>
+           3. Have fun Shopping.<br>
+        </div>
+     </article>
+     <hr>
+
      <br>
      <br>
      <footer class="row" style="background-color:black">
@@ -377,5 +181,6 @@
 
    <script type="text/javascript">
      $("[data-toggle=popover]").popover();
+     $('button').scrollspy({ target: '#howwework' });
    </script>
   </html>

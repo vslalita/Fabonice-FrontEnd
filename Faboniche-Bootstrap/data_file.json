@@ -1,0 +1,10 @@
+ [{
+	  	"stylist":{"firstname":"SivaLalita",
+	                 "lastname": "Vissamsetty",
+	                 "profileimage":"images/icon.jpg",
+                    "lookbook": {"image":"http://www.wendyslookbook.com/wp-content/uploads/2011/11/Rose-35-650x433.jpg",
+                                    "image": "http://www.wendyslookbook.com/wp-content/uploads/2011/11/Rose-35-650x433.jpg",
+                                    "image": "http://www.wendyslookbook.com/wp-content/uploads/2011/11/Rose-35-650x433.jpg",
+                                 }
+	               }
+	  }];
